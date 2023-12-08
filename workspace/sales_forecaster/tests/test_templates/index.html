@@ -1,0 +1,34 @@
+from bs4 import BeautifulSoup
+
+## Test_HTML_File
+class TestHTMLFile(unittest.TestCase):
+    def setUp(self):
+        self.soup = None
+        with open('C:/Users/spamk/OneDrive/Documents/GitHub/MetaGPT-main/workspace/sales_forecaster/sales_forecaster/templates/index.html', 'r') as f:
+            contents = f.read()
+            self.soup = BeautifulSoup(contents, 'html.parser')
+
+    ## Test_Title
+    def test_title(self):
+        title_tag = self.soup.title
+        self.assertIsNotNone(title_tag, "Title tag not found")
+        self.assertEqual(title_tag.string, 'Sales Forecaster')
+
+    ## Test_Container_Div
+    def test_container_div(self):
+        container_div = self.soup.find('div', {'class': 'container'})
+        self.assertIsNotNone(container_div, "Container div not found")
+
+    ## Test_Chart_Div
+    def test_chart_div(self):
+        chart_div = self.soup.find('div', {'id': 'chart', 'class': 'chart'})
+        self.assertIsNotNone(chart_div, "Chart div not found")
+
+    ## Test_Fetch_API
+    def test_fetch_api(self):
+        script_tags = self.soup.find_all('script')
+        self.assertIsNotNone(script_tags, "Script tags not found")
+        self.assertTrue(any('fetch(\'/forecast\'' in tag.string for tag in script_tags if tag.string), "Fetch API call not found")
+
+if __name__ == '__main__':
+    unittest.main()

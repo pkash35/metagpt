@@ -1,0 +1,19 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant G as GUI
+        participant S as Sudoku
+        M->>G: start_new_game()
+        G->>S: generate_puzzle()
+        S-->>G: return generated puzzle
+        G->>M: draw_grid()
+        G->>M: draw_numbers()
+        M->>G: get_user_input()
+        M->>G: erase_input()
+        M->>G: show_hint()
+        G->>S: get_hint()
+        S-->>G: return hint
+        G->>M: show_solution()
+        G->>S: solve_puzzle()
+        S-->>G: return solution
+    

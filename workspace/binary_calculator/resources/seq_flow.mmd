@@ -1,0 +1,16 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant C as Calculator
+        M->>C: __init__(binary1, binary2)
+        Note over M,C: User inputs binary numbers
+        M->>C: add()
+        Note over M,C: Result is displayed
+        M->>C: subtract()
+        Note over M,C: Result is displayed
+        M->>C: multiply()
+        Note over M,C: Result is displayed
+        M->>C: divide()
+        Note over M,C: Result is displayed
+        M->>M: clear inputs and results
+    

@@ -1,0 +1,20 @@
+
+    classDiagram
+        class Sudoku{
+            +List[List[int]] grid
+            +generate_puzzle()
+            +solve_puzzle()
+            +get_hint()
+        }
+        class GUI{
+            +Sudoku sudoku
+            +draw_grid()
+            +draw_numbers()
+            +start_new_game()
+            +get_user_input()
+            +erase_input()
+            +show_hint()
+            +show_solution()
+        }
+        GUI "1" -- "1" Sudoku: has
+    

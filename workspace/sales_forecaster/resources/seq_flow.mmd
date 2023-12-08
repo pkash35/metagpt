@@ -1,0 +1,16 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant A as App
+        participant D as DataGenerator
+        participant F as Forecaster
+        M->>A: create app
+        A->>D: create data generator
+        A->>F: create forecaster
+        M->>A: run app
+        A->>D: generate data
+        D-->>A: return data
+        A->>F: forecast data
+        F-->>A: return forecast
+        A->>M: return forecast
+    

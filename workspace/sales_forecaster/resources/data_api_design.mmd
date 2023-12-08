@@ -1,0 +1,20 @@
+
+    classDiagram
+        class DataGenerator{
+            +faker.Faker faker
+            +int years
+            +generate(): pandas.DataFrame
+        }
+        class Forecaster{
+            +prophet.Prophet model
+            +forecast(data: pandas.DataFrame): pandas.DataFrame
+        }
+        class App{
+            +Flask app
+            +DataGenerator data_generator
+            +Forecaster forecaster
+            +run()
+        }
+        DataGenerator "1" -- "1" App: has
+        Forecaster "1" -- "1" App: has
+    

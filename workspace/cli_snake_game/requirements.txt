@@ -1,0 +1,2 @@
+curses==2.2.1
+threading==3.5.0
